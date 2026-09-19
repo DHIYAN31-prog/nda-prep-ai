@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS mock_tests (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), title TEXT NOT NULL, subject TEXT NOT NULL, duration_minutes INTEGER NOT NULL, total_questions INTEGER NOT NULL, total_marks INTEGER NOT NULL, difficulty TEXT NOT NULL, instructions TEXT, created_at TIMESTAMPTZ NOT NULL DEFAULT now())

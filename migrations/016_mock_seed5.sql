@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA History & Defence Drill','History & Defence Studies',20,10,25,'Moderate','10 history/defence questions • 20 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA History & Defence Drill')

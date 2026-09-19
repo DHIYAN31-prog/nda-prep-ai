@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA Geography Challenge','Geography & World',20,10,25,'Hard','10 geography questions • 20 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA Geography Challenge')

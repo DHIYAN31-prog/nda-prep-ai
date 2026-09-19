@@ -1,0 +1,4 @@
+import { db } from "hatchable";
+export const access="user";
+export const methods=["POST"];
+export default async function(req,res){const b=req.body||{};if(!b.test_id)return res.status(400).json({error:"test_id required"});const m=await db.query("SELECT id FROM mock_tests WHERE id=$1",[b.test_id]);if(!m.rows.length)return res.status(404).json({error:"test not found"});await db.query("INSERT INTO mock_attempts (user_id,test_id,score,correct,attempted,total,time_seconds) VALUES ($1,$2,$3,$4,$5,$6,$7)",[req.user.id,b.test_id,b.score||0,b.correct||0,b.attempted||0,b.total||0,b.time_seconds||0]);res.json({ok:true});}

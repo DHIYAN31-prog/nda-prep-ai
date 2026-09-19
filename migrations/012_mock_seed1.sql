@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA Mathematics Sprint 1','Mathematics',30,10,25,'Moderate','10 questions • 30 minutes • Practice mode' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA Mathematics Sprint 1')

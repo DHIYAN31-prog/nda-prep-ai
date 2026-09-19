@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS mock_questions (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), test_id UUID NOT NULL, question_no INTEGER NOT NULL, question_text TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_option TEXT NOT NULL, explanation TEXT, topic TEXT)

@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA GAT Mixed Drill 1','General Ability Test',30,10,25,'Moderate','10 mixed GAT questions • 30 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA GAT Mixed Drill 1')
