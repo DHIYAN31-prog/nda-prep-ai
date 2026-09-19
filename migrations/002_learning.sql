@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS papers (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), year INTEGER NOT NULL, session TEXT NOT NULL, subject TEXT NOT NULL, title TEXT NOT NULL, description TEXT, url TEXT, created_at TIMESTAMPTZ NOT NULL DEFAULT now())

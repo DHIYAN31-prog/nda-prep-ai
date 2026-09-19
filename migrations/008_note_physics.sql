@@ -1,0 +1,1 @@
+INSERT INTO notes (subject,title,content,mnemonic) SELECT 'Physics','Units & dimensions','Before trusting a numerical answer, check units. Dimensional analysis can catch many mistakes even when the arithmetic looks correct.','U-C-F = Units, Calculate, Final check.' WHERE NOT EXISTS (SELECT 1 FROM notes WHERE title='Units & dimensions')

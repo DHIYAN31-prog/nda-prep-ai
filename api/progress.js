@@ -1,0 +1,5 @@
+import { db } from "hatchable";
+import { auth } from "hatchable";
+export const access = "public";
+export const methods = ["GET","POST"];
+export default async function(req,res){const user=await auth.getUser(req);if(!user)return res.status(401).json({error:"Sign in required"});if(req.method==="POST"){const b=req.body||{};await db.query("INSERT INTO progress (user_id,study_date,minutes,questions_attempted,correct_answers,weak_area) VALUES ($1,CURRENT_DATE,$2,$3,$4,$5) ON CONFLICT (user_id,study_date) DO UPDATE SET minutes=progress.minutes+$2, questions_attempted=progress.questions_attempted+$3, correct_answers=progress.correct_answers+$4, weak_area=COALESCE($5,progress.weak_area)",[user.id,b.minutes||0,b.questions_attempted||0,b.correct_answers||0,b.weak_area||null]);return res.json({ok:true})}const r=await db.query("SELECT study_date,minutes,questions_attempted,correct_answers,weak_area FROM progress WHERE user_id=$1 ORDER BY study_date DESC LIMIT 30",[user.id]);res.json({progress:r.rows})}

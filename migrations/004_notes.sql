@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS notes (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), subject TEXT NOT NULL, title TEXT NOT NULL, content TEXT NOT NULL, mnemonic TEXT, created_at TIMESTAMPTZ NOT NULL DEFAULT now())

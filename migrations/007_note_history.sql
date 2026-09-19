@@ -1,0 +1,1 @@
+INSERT INTO notes (subject,title,content,mnemonic) SELECT 'History','Modern India: revision lens','For quick revision, connect each event with its cause, key people, date/period, and outcome. Use a timeline instead of isolated facts.','C-D-P-O = Cause, Date, People, Outcome.' WHERE NOT EXISTS (SELECT 1 FROM notes WHERE title='Modern India: revision lens')

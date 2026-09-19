@@ -1,0 +1,4 @@
+import { ai } from "hatchable";
+export const access = "user";
+export const methods = ["POST"];
+export default async function(req,res){const {question,language="English"}=req.body||{};if(!question)return res.status(400).json({error:"Question is required"});const system="You are NDA Prep AI, a supportive exam tutor. Explain in simple beginner-friendly language. Be accurate, structured, concise, and encouraging. Prefer step-by-step reasoning, examples, mnemonics, and quick revision tips. Do not invent official exam facts. If unsure, say so. Reply in the requested language: "+language+".";const out=await ai.generateText({model:"sonnet",system,messages:[{role:"user",content:question}],purpose:"NDA exam tutoring"});res.json({answer:out.text||out});}

@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS progress (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id TEXT NOT NULL, study_date DATE NOT NULL, minutes INTEGER NOT NULL DEFAULT 0, questions_attempted INTEGER NOT NULL DEFAULT 0, correct_answers INTEGER NOT NULL DEFAULT 0, weak_area TEXT, created_at TIMESTAMPTZ NOT NULL DEFAULT now(), UNIQUE(user_id, study_date))

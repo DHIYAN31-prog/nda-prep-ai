@@ -1,0 +1,1 @@
+INSERT INTO papers (year, session, subject, title, description, url) SELECT 2024, 'I', 'Mathematics', 'NDA Mathematics 2024-I', 'Past-paper repository entry. Add the official PDF URL when publishing the paper.', NULL WHERE NOT EXISTS (SELECT 1 FROM papers WHERE year=2024 AND session='I' AND subject='Mathematics')

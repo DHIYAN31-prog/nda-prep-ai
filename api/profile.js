@@ -1,0 +1,5 @@
+import { db } from "hatchable";
+import { auth } from "hatchable";
+export const access = "public";
+export const methods = ["GET","POST"];
+export default async function(req,res){const user=await auth.getUser(req);if(!user)return res.status(401).json({error:"Sign in required"});if(req.method==="POST"){const b=req.body||{};await db.query("INSERT INTO profiles (user_id,name,language,study_minutes,reminder_interval) VALUES ($1,$2,$3,$4,$5) ON CONFLICT (user_id) DO UPDATE SET name=$2,language=$3,study_minutes=$4,reminder_interval=$5,updated_at=now()",[user.id,b.name||user.name||"",b.language||"English",b.study_minutes||60,b.reminder_interval||60]);return res.json({ok:true})}const r=await db.query("SELECT user_id,name,language,study_minutes,reminder_interval FROM profiles WHERE user_id=$1",[user.id]);res.json({profile:r.rows[0]||null})}
