@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA Revision Test','All Subjects',60,20,50,'Moderate','20 mixed revision questions • 60 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA Revision Test')

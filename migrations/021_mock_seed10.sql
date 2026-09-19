@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA English Speed Drill','English',20,10,25,'Easy','10 English questions • 20 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA English Speed Drill')

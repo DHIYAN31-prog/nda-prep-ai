@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA Chemistry Practice Test','Chemistry (GAT)',25,10,25,'Moderate','10 chemistry questions • 25 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA Chemistry Practice Test')

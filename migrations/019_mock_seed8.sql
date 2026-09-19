@@ -1,0 +1,1 @@
+INSERT INTO mock_tests (title,subject,duration_minutes,total_questions,total_marks,difficulty,instructions) SELECT 'NDA Full Syllabus Mock','All Subjects',120,40,100,'Hard','40 mixed NDA questions • 120 minutes' WHERE NOT EXISTS (SELECT 1 FROM mock_tests WHERE title='NDA Full Syllabus Mock')
