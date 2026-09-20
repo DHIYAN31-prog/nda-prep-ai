@@ -136,15 +136,16 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 <div><div class="text-xs olive font-bold">UPLOADED NCERT PDF LIBRARY</div><h2 class="text-3xl font-black mt-1">📚 NCERT PDFs You Added</h2><p class="text-sm text-gray-500 mt-2 max-w-3xl">These cards open the actual PDFs stored in NDA Prep AI. They do not redirect to the NCERT website.</p></div>
 <div class="flex gap-2">
 <button @click="loadNcert()" class="border rounded-xl px-4 py-3 text-sm">Refresh</button>
-<label class="bg-green-900 text-white rounded-xl px-4 py-3 text-sm cursor-pointer">Upload NCERT PDF<input type="file" class="hidden" accept="application/pdf" @change="prepareNcertUpload($event)"></label>
+<label class="bg-green-900 text-white rounded-xl px-4 py-3 text-sm cursor-pointer">Select NCERT PDFs<input type="file" class="hidden" accept="application/pdf" multiple @change="prepareNcertUpload($event)"></label>
 </div>
 </div>
-<div x-show="ncertUploadFile" class="mt-4 border rounded-2xl p-4 bg-green-50 dark:bg-green-950/20">
-<div class="font-semibold">Upload to NCERT library</div>
+<div x-show="ncertUploadFiles.length" class="mt-4 border rounded-2xl p-4 bg-green-50 dark:bg-green-950/20">
+<div class="font-semibold">Upload selected NCERT PDFs</div>
 <div class="grid md:grid-cols-3 gap-3 mt-3">
 <select x-model="ncertUploadClass" class="border rounded-xl p-3"><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select>
 <input x-model="ncertUploadSubject" class="border rounded-xl p-3" placeholder="Subject e.g. Science / Physics">
-<div class="flex gap-2"><button @click="uploadNcert()" class="bg-green-900 text-white rounded-xl px-4 py-3">Upload</button><span class="text-xs self-center text-gray-500" x-text="ncertUploadStatus"></span></div>
+<div class="md:col-span-3 text-xs text-gray-500" x-text="ncertUploadFiles.map(f=>f.name).join(' • ')"></div>
+<div class="flex gap-2 md:col-span-3"><button @click="uploadNcert()" class="bg-green-900 text-white rounded-xl px-4 py-3">Upload All Selected</button><button @click="ncertUploadFiles=[];ncertUploadStatus=''" class="border rounded-xl px-4 py-3">Clear</button><span class="text-xs self-center text-gray-500" x-text="ncertUploadStatus"></span></div>
 </div>
 </div>
 <div class="mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-3">
