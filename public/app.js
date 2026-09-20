@@ -5,7 +5,7 @@ view:'dashboard',
 nav:[
 {key:'dashboard',label:'Dashboard'},{key:'exam',label:'Exam Overview'},{key:'syllabus',label:'Syllabus'},{key:'practice',label:'Daily Quiz'},{key:'mocks',label:'Mock Tests'},{key:'revision',label:'Revision'},{key:'planner',label:'What should I study today?'},{key:'tutor',label:'Free Tutor'},{key:'news',label:'Daily News'},{key:'analytics',label:'Analytics'},{key:'coach',label:'Performance Coach'},{key:'bookmarks',label:'Bookmarks'}],
 dashboardStats:[
-{label:'Daily mocks',value:'297',sub:'200 questions each'},{label:'Practice bank',value:'100+',sub:'original questions and growing'},{label:'Tutor modes',value:'5',sub:'explain • solve • quiz • cards • strategy'},{label:'Live feeds',value:'2',sub:'India news + UPSC/NDA updates'}],
+{label:'Daily mocks',value:'297',sub:'200 questions each'},{label:'Practice bank',value:'40+',sub:'original questions and growing'},{label:'Tutor modes',value:'5',sub:'explain • solve • quiz • cards • strategy'},{label:'Live feeds',value:'2',sub:'India news + UPSC/NDA updates'}],
 syllabus:[
 {name:'Mathematics',topics:['Algebra','Matrices','Trigonometry','Coordinate Geometry','Calculus','Vectors','Probability','Statistics','Complex Numbers','Differential Equations']},
 {name:'GAT',topics:['Physics','Chemistry','General Science','History','Geography','Polity','Economics','Current Affairs']},
