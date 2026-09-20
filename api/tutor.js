@@ -1,3 +1,5 @@
+import { ai } from "hatchable";
+
 export const access="member";
 export const methods=["POST"];
 
@@ -47,7 +49,17 @@ export default async function(req,res){
  const level=String(req.body?.level||"beginner");
  const mode=String(req.body?.mode||"explain");
  const sourceText=String(req.body?.source_text||"").trim().slice(0,60000);
+ const useGemini=Boolean(req.body?.use_gemini);
  if(!q && !sourceText)return res.status(400).json({error:"question required"});
+ if(useGemini && q){
+   try{
+     const prompt="You are an expert NDA teacher. Give a deep, exam-ready explanation. Structure it as: 1) simple definition, 2) intuition, 3) prerequisites, 4) formulas/rules, 5) worked example step-by-step, 6) common NDA traps, 7) 3 practice MCQs with answers and explanations, 8) 30-second revision. Be accurate and beginner-friendly.";
+     const out=await ai.generateText({model:"gemini-pro",prompt:prompt+"\n\nStudent question: "+q,purpose:"nda-tutor",asUser:req.member.id});
+     return res.json({answer:out.text,topic:"Gemini Pro — NDA Tutor",mode:"optional_gemini_pro",provider_required:true,provider:"google",depth:"Advanced Gemini explanation"});
+   }catch(e){
+     // Optional AI never breaks the free core. Fall through to the built-in tutor.
+   }
+ }
  if(sourceText){
    const d=deepFromText(sourceText);
    const topic=q||"Uploaded study material";

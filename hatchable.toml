@@ -1,10 +1,15 @@
 [auth]
 enabled = true
-providers = ["email"]
+providers = ["email", "google"]
 signup = "open"
 
 [project]
 name = "NDA Prep AI"
+
+[ai]
+required = false
+providers = ["google"]
+description = "Optional Gemini Pro deep tutor. The free core tutor never requires AI credits."
 
 [db.tables.mock_attempts]
 read = "own"
