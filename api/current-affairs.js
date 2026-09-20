@@ -57,14 +57,14 @@ function examAngle(topic,title){
 }
 async function fetchRss(q){
   const url="https://news.google.com/rss/search?q="+encodeURIComponent(q)+"&hl=en-IN&gl=IN&ceid=IN:en";
-  try{return parseRss(await (await fetch(url)).text());}catch(e){return []}
+  try{return parseRss(await (await fetch(url)).text(),720);}catch(e){return []}
 }
 export default async function(req,res){
   const now=new Date(), date=now.toISOString().slice(0,10);
   const [defence,india,upsc]=await Promise.all([
-    fetchRss("India defence DRDO Army Navy Air Force NDA"),
-    fetchRss("India economy science environment national current affairs"),
-    fetchRss("India UPSC current affairs polity international science technology")
+    fetchRss("India defence DRDO Army Navy Air Force NDA "+date),
+    fetchRss("India economy science environment national current affairs "+date),
+    fetchRss("India UPSC current affairs polity international science technology "+date)
   ]);
   const all=[...defence,...india,...upsc];
   const seen=new Set(), ranked=[];
