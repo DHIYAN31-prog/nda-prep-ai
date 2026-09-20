@@ -41,3 +41,7 @@ write = "own"
 [db.tables.achievements]
 read = "own"
 write = "own"
+
+[db.tables.study_uploads]
+read = "own"
+write = "own"
