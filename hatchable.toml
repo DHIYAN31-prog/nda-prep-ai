@@ -5,6 +5,7 @@ signup = "open"
 
 [ai]
 required = true
+providers = ["anthropic"]
 
 [project]
 name = "NDA Prep AI"
