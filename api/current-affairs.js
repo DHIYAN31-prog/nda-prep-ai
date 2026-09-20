@@ -26,11 +26,13 @@ function parseRss(xml, maxAgeHours=72){
   while((m=re.exec(xml||""))){
     const block=m[1];
     const get=(tag)=>{const r=new RegExp("<"+tag+">([\\s\\S]*?)<\\/"+tag+">","i").exec(block);return r?decodeXml(r[1]):""};
-    const title=get("title"), link=get("link"), source=get("source"), pub=get("pubDate");
+    const title=get("title"), link=get("link"), pub=get("pubDate");
+    const sm=new RegExp("<source[^>]*>([\\s\\S]*?)</source>","i").exec(block);
+    const source=sm?decodeXml(sm[1]):((title.match(/\\s[-–—]\\s([^–—-]+)$/)||[])[1]||"News source").trim();
     const time=pub?new Date(pub).getTime():0;
     if(!title||!link)continue;
     if(time && Date.now()-time>maxAgeHours*3600000)continue;
-    items.push({title,link,source:source||"News source",published_at:pub||null});
+    items.push({title,link,source,published_at:pub||null});
   }
   return items;
 }
@@ -85,8 +87,11 @@ export default async function(req,res){
     const priority=topic==="Defence & Security"?3:(topic==="Science & Tech"||topic==="International Relations"?2:1);
     ranked.push({...n,topic,exam_angle:examAngle(topic,n.title),priority});
   }
-  ranked.sort((a,b)=>(b.priority-a.priority)||(new Date(b.published_at||0)-new Date(a.published_at||0)));
-  let daily_brief=ranked.slice(0,20).map((n,i)=>({...n,rank:i+1}));
+  ranked.sort((a,b)=>(new Date(b.published_at||0)-new Date(a.published_at||0))+(b.priority-a.priority)*3600000);
+  const buckets={}; ranked.forEach(n=>(buckets[n.topic]??=[]).push(n));
+  const topicOrder=["Defence & Security","Science & Tech","Economy","Environment","International Relations","Polity","Sports","National & General"];
+  const daily_brief=[];
+  for(let round=0;round<4 && daily_brief.length<20;round++)for(const topic of topicOrder){const item=buckets[topic]?.shift();if(item)daily_brief.push({...item,rank:daily_brief.length+1});}
   if(!daily_brief.length){
     daily_brief=[
       {rank:1,title:"Army Chief's Russia visit focuses on artillery modernisation and capability development",link:"https://timesofindia.indiatimes.com/defence/news/army-chiefs-military-talks-in-russia-focus-on-artillery-modernisation-capability-development/articleshow/134360116.cms",source:"Times of India",topic:"Defence & Security",exam_angle:"NDA focus: remember the defence cooperation themes—artillery modernisation, capability development and training exchanges.",published_at:now.toISOString()},
