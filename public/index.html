@@ -133,20 +133,31 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 <section x-show="view==='ncert'" class="space-y-5">
 <div class="glass card rounded-3xl p-6">
 <div class="flex flex-wrap justify-between gap-4 items-end">
-<div><div class="text-xs olive font-bold">UPLOADED NCERT PDF LIBRARY</div><h2 class="text-3xl font-black mt-1">📚 NCERT PDFs You Added</h2><p class="text-sm text-gray-500 mt-2 max-w-3xl">The generic NCERT catalog has been removed. This section now lists the NCERT PDF files you uploaded for the app, grouped by class and subject. Each card opens the corresponding official NCERT PDF/download page.</p></div>
-<a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener" class="bg-green-900 text-white rounded-xl px-4 py-3 text-sm">Official NCERT Hub →</a>
+<div><div class="text-xs olive font-bold">UPLOADED NCERT PDF LIBRARY</div><h2 class="text-3xl font-black mt-1">📚 NCERT PDFs You Added</h2><p class="text-sm text-gray-500 mt-2 max-w-3xl">These cards open the actual PDFs stored in NDA Prep AI. They do not redirect to the NCERT website.</p></div>
+<div class="flex gap-2">
+<button @click="loadNcert()" class="border rounded-xl px-4 py-3 text-sm">Refresh</button>
+<label class="bg-green-900 text-white rounded-xl px-4 py-3 text-sm cursor-pointer">Upload NCERT PDF<input type="file" class="hidden" accept="application/pdf" @change="prepareNcertUpload($event)"></label>
+</div>
+</div>
+<div x-show="ncertUploadFile" class="mt-4 border rounded-2xl p-4 bg-green-50 dark:bg-green-950/20">
+<div class="font-semibold">Upload to NCERT library</div>
+<div class="grid md:grid-cols-3 gap-3 mt-3">
+<select x-model="ncertUploadClass" class="border rounded-xl p-3"><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select>
+<input x-model="ncertUploadSubject" class="border rounded-xl p-3" placeholder="Subject e.g. Science / Physics">
+<div class="flex gap-2"><button @click="uploadNcert()" class="bg-green-900 text-white rounded-xl px-4 py-3">Upload</button><span class="text-xs self-center text-gray-500" x-text="ncertUploadStatus"></span></div>
+</div>
 </div>
 <div class="mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-3">
 <template x-for="r in ncertResources" :key="r.className+'-'+r.subject+'-'+r.title">
 <article class="border rounded-2xl p-4 hover:shadow-md">
 <div class="text-xs olive font-bold" x-text="r.className+' • '+r.subject"></div>
-<h3 class="font-semibold mt-1" x-text="r.title"></h3>
-<p class="text-xs text-gray-500 mt-2">Official NCERT download page • complete book option where provided</p>
-<a :href="r.url" target="_blank" rel="noopener" class="inline-block mt-3 text-sm underline">Open / Download PDF →</a>
+<h3 class="font-semibold mt-1 break-words" x-text="r.title"></h3>
+<p class="text-xs text-gray-500 mt-2">Stored in NDA Prep AI • actual uploaded PDF</p>
+<a :href="r.url" target="_blank" rel="noopener" class="inline-block mt-3 text-sm underline">Open actual PDF →</a>
 </article>
 </template>
 </div>
-<div class="mt-5 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-sm"><b>Why official links?</b> NCERT hosts the current textbook PDFs itself. The app links to the original source rather than re-hosting copyrighted textbook files.</div>
+<div x-show="!ncertResources.length" class="mt-5 p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-sm"><b>No NCERT PDFs are stored yet.</b> Upload the PDFs here and they will appear as cards that open the uploaded files.</div>
 </div>
 </section>
 
