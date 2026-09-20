@@ -56,20 +56,17 @@ pdfResources:[
 {subject:'PDF',topic:'NDA Current Affairs',title:'NDA Monthly Current Affairs — July 2026 PDF',url:'https://www.cavalier.in/nda-current-affairs/monthly/2026-07-31',kind:'Free monthly PDF'}
 ],
 ncertResources:[
-...Array.from({length:7},(_,i)=>{const c=i+6;return {className:'Class '+c,subject:'Mathematics',title:'NCERT Class '+c+' Mathematics — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class='+c+'&subject=Mathematics&type=pdf'}}),
-...Array.from({length:7},(_,i)=>{const c=i+6;return {className:'Class '+c,subject:'Science',title:'NCERT Class '+c+' Science — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class='+c+'&subject=Science&type=pdf'}}),
-...Array.from({length:7},(_,i)=>{const c=i+6;return {className:'Class '+c,subject:'Social Science',title:'NCERT Class '+c+' Social Science / Social Sciences — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class='+c+'&subject=Social+Science&type=pdf'}}),
-{className:'Class 11',subject:'Physics',title:'NCERT Class 11 Physics — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=11&subject=Physics&type=pdf'},
-{className:'Class 11',subject:'Chemistry',title:'NCERT Class 11 Chemistry — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=11&subject=Chemistry&type=pdf'},
-{className:'Class 11',subject:'Biology',title:'NCERT Class 11 Biology — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=11&subject=Biology&type=pdf'},
-{className:'Class 11',subject:'Geography',title:'NCERT Class 11 Geography — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=11&subject=Geography&type=pdf'},
-{className:'Class 11',subject:'Political Science',title:'NCERT Class 11 Political Science — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=11&subject=Political+Science&type=pdf'},
-{className:'Class 12',subject:'Physics',title:'NCERT Class 12 Physics — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=12&subject=Physics&type=pdf'},
-{className:'Class 12',subject:'Chemistry',title:'NCERT Class 12 Chemistry — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=12&subject=Chemistry&type=pdf'},
-{className:'Class 12',subject:'Biology',title:'NCERT Class 12 Biology — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=12&subject=Biology&type=pdf'},
-{className:'Class 12',subject:'Geography',title:'NCERT Class 12 Geography — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=12&subject=Geography&type=pdf'},
-{className:'Class 12',subject:'Political Science',title:'NCERT Class 12 Political Science — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class=12&subject=Political+Science&type=pdf'},
-{className:'All Classes',subject:'Official Hub',title:'NCERT Textbooks Classes I–XII — official complete-book download hub',url:'https://ncert.nic.in/textbook.php'}
+{className:'Class 6',subject:'Science',title:'1694937523NCERT-Class-6 Science.pdf',url:'https://ncert.nic.in/textbook.php?class=6&subject=Science&type=pdf',uploaded:true},
+{className:'Class 7',subject:'Science',title:'1694937684NCERT-Class-7 Science.pdf',url:'https://ncert.nic.in/textbook.php?class=7&subject=Science&type=pdf',uploaded:true},
+{className:'Class 8',subject:'Science',title:'1694937737NCERT-Class-8 Science.pdf',url:'https://ncert.nic.in/textbook.php?class=8&subject=Science&type=pdf',uploaded:true},
+{className:'Class 9',subject:'Science',title:'1694937795NCERT-Class-9 Science.pdf',url:'https://ncert.nic.in/textbook.php?class=9&subject=Science&type=pdf',uploaded:true},
+{className:'Class 10',subject:'Science',title:'1694937858NCERT-Class-10 Science.pdf',url:'https://ncert.nic.in/textbook.php?class=10&subject=Science&type=pdf',uploaded:true},
+{className:'Class 11',subject:'Physics',title:'1694938999NCERT-Class-11-Physics-Part-1.pdf',url:'https://ncert.nic.in/textbook.php?class=11&subject=Physics&type=pdf',uploaded:true},
+{className:'Class 11',subject:'Chemistry',title:'1694938056NCERT-Class-11-Chemistry-Part-1.pdf',url:'https://ncert.nic.in/textbook.php?class=11&subject=Chemistry&type=pdf',uploaded:true},
+{className:'Class 11',subject:'Biology',title:'1694938005NCERT-Class-11-Biology.pdf',url:'https://ncert.nic.in/textbook.php?class=11&subject=Biology&type=pdf',uploaded:true},
+{className:'Class 12',subject:'Chemistry',title:'1694938789NCERT-Class-12-Chemistry-Part-1.pdf',url:'https://ncert.nic.in/textbook.php?class=12&subject=Chemistry&type=pdf',uploaded:true},
+{className:'Class 12',subject:'Biology',title:'1694938627NCERT-Class-12-Biology.pdf',url:'https://ncert.nic.in/textbook.php?class=12&subject=Biology&type=pdf',uploaded:true},
+{className:'Class 12',subject:'Physics',title:'1694939047NCERT-Class-12-Physics-Part-2.pdf',url:'https://ncert.nic.in/textbook.php?class=12&subject=Physics&type=pdf',uploaded:true}
 ],
 studyNotes:[
 {subject:'Mathematics',title:'Algebra — NDA Quick Notes',content:'• Quadratic: ax²+bx+c=0.\n• Roots: x = (−b ± √(b²−4ac))/(2a).\n• Sum of roots = −b/a; product = c/a.\n• For AP: aₙ=a+(n−1)d; Sₙ=n/2[2a+(n−1)d].\n• NDA focus: simplify first, check signs, and estimate the answer before solving.'},
