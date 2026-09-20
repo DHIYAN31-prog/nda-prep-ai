@@ -8,3 +8,39 @@ required = true
 
 [project]
 name = "NDA Prep AI"
+
+[db.tables.mock_attempts]
+read = "own"
+write = "own"
+
+[db.tables.profiles]
+read = "own"
+write = "own"
+
+[db.tables.progress]
+read = "own"
+write = "own"
+
+[db.tables.quiz_attempts]
+read = "own"
+write = "own"
+
+[db.tables.bookmarks]
+read = "own"
+write = "own"
+
+[db.tables.mistakes]
+read = "own"
+write = "own"
+
+[db.tables.study_plans]
+read = "own"
+write = "own"
+
+[db.tables.study_tasks]
+read = "own"
+write = "own"
+
+[db.tables.achievements]
+read = "own"
+write = "own"
