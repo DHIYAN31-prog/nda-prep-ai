@@ -61,12 +61,22 @@ async function fetchRss(q){
 }
 export default async function(req,res){
   const now=new Date(), date=now.toISOString().slice(0,10);
-  const [defence,india,upsc]=await Promise.all([
-    fetchRss("India defence DRDO Army Navy Air Force NDA "+date),
-    fetchRss("India economy science environment national current affairs "+date),
-    fetchRss("India UPSC current affairs polity international science technology "+date)
-  ]);
-  const all=[...defence,...india,...upsc];
+  const queries=[
+    "India latest news current affairs "+date,
+    "India defence Army Navy Air Force DRDO ISRO "+date,
+    "India economy RBI GDP budget trade jobs "+date,
+    "India science technology space AI semiconductor "+date,
+    "India environment climate wildlife monsoon "+date,
+    "India polity parliament Supreme Court government schemes "+date,
+    "India international relations diplomacy BRICS UN Russia China USA "+date,
+    "India sports Olympics Asian Games cricket "+date,
+    "India appointments awards education health disaster "+date,
+    "site:timesofindia.indiatimes.com India current affairs NDA UPSC "+date,
+    "site:thehindu.com India current affairs NDA UPSC "+date,
+    "site:learningcorner.epaper.thehindu.com UPSC current affairs India "+date
+  ];
+  const feeds=await Promise.all(queries.map(q=>fetchRss(q)));
+  const all=feeds.flat();
   const seen=new Set(), ranked=[];
   for(const n of all){
     const key=n.title.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
@@ -76,7 +86,7 @@ export default async function(req,res){
     ranked.push({...n,topic,exam_angle:examAngle(topic,n.title),priority});
   }
   ranked.sort((a,b)=>(b.priority-a.priority)||(new Date(b.published_at||0)-new Date(a.published_at||0)));
-  let daily_brief=ranked.slice(0,10).map((n,i)=>({...n,rank:i+1}));
+  let daily_brief=ranked.slice(0,20).map((n,i)=>({...n,rank:i+1}));
   if(!daily_brief.length){
     daily_brief=[
       {rank:1,title:"Army Chief's Russia visit focuses on artillery modernisation and capability development",link:"https://timesofindia.indiatimes.com/defence/news/army-chiefs-military-talks-in-russia-focus-on-artillery-modernisation-capability-development/articleshow/134360116.cms",source:"Times of India",topic:"Defence & Security",exam_angle:"NDA focus: remember the defence cooperation themes—artillery modernisation, capability development and training exchanges.",published_at:now.toISOString()},
@@ -94,6 +104,9 @@ export default async function(req,res){
     {title:"UPSC What's New — live official notices",url:"https://www.upsc.gov.in/whats-new"}
   ];
   const current=[
+    {title:"Times of India — Latest India News",url:"https://timesofindia.indiatimes.com/india",source:"Times of India",tag:"Live national news feed"},
+    {title:"The Hindu — India News",url:"https://www.thehindu.com/news/national/",source:"The Hindu",tag:"Live national news feed"},
+    {title:"The Hindu Learning Corner — UPSC resources + daily quiz",url:"https://learningcorner.epaper.thehindu.com/",source:"The Hindu Learning Corner",tag:"Explainers, vocabulary, grammar and daily quiz"},
     {title:"PIB — Today's Government of India releases",url:"https://www.pib.gov.in/AllReleasem.aspx?lang=1&reg=3",source:"PIB",tag:"Official government releases"},
     {title:"UPSC Current Affairs — Indian Express",url:"https://indianexpress.com/section/upsc-current-affairs/",source:"Indian Express",tag:"Exam-oriented daily coverage"},
     {title:"UPSC Current Affairs — Insights IAS",url:"https://www.insightsonindia.com/current-affairs-upsc/",source:"Insights IAS",tag:"Daily exam-oriented coverage"},
