@@ -5,7 +5,7 @@ const banks={
   Mathematics:{
     Algebra:[
       ["If x+3=11, what is x?",["A) 6","B) 7","C) 8","D) 9"],"C","Subtract 3 from both sides: x=8."],
-      ["If 2x−5=9, what is x?",["A) 2","B) 5","C) 7","D) 9"],"B","2x=14, so x=7. The correct option is C."],
+      ["If 2x−5=9, what is x?",["A) 2","B) 5","C) 7","D) 9"],"C","2x=14, so x=7. The correct option is C."],
       ["The roots of x²−5x+6=0 are:",["A) 1,6","B) 2,3","C) −2,−3","D) 3,4"],"B","Factor as (x−2)(x−3)=0, giving 2 and 3."]
     ],
     Trigonometry:[
