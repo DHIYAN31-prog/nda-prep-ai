@@ -3,7 +3,7 @@ return{
 dark:localStorage.ndadark==='1',
 view:'dashboard',
 nav:[
-{key:'dashboard',label:'Dashboard'},{key:'exam',label:'Exam Overview'},{key:'syllabus',label:'Syllabus'},{key:'practice',label:'Daily Quiz'},{key:'mocks',label:'Mock Tests'},{key:'revision',label:'Revision'},{key:'planner',label:'What should I study today?'},{key:'tutor',label:'Free Tutor'},{key:'news',label:'Daily News'},{key:'resources',label:'Video + PDF Library'},{key:'analytics',label:'Analytics'},{key:'coach',label:'Performance Coach'},{key:'bookmarks',label:'Bookmarks'}],
+{key:'dashboard',label:'Dashboard'},{key:'exam',label:'Exam Overview'},{key:'syllabus',label:'Syllabus'},{key:'practice',label:'Daily Quiz'},{key:'mocks',label:'Mock Tests'},{key:'revision',label:'Revision'},{key:'planner',label:'What should I study today?'},{key:'tutor',label:'Free Tutor'},{key:'copilot',label:'AI Study Copilot'},{key:'news',label:'Daily News'},{key:'resources',label:'Video + PDF Library'},{key:'analytics',label:'Analytics'},{key:'coach',label:'Performance Coach'},{key:'bookmarks',label:'Bookmarks'}],
 dashboardStats:[
 {label:'Daily mocks',value:'297',sub:'200 questions each'},{label:'Practice bank',value:'40+',sub:'original questions and growing'},{label:'Tutor modes',value:'6',sub:'free expert + advanced engine modes'},{label:'Live feeds',value:'7+',sub:'TOI + The Hindu + PIB + UPSC + exam sources'}],
 syllabus:[
@@ -25,13 +25,36 @@ resourceVideos:[
 {subject:'GAT',topic:'Physics',title:'NDA Physics: Light, Heat & Thermodynamics — Defence Wallah',url:'https://www.youtube.com/watch?v=SdBfftoW9sA',kind:'Verified video'},
 {subject:'GAT',topic:'Biology',title:'NDA Biology: Tissues, Diversity, Health, Diseases & Genetics — Defence Wallah',url:'https://www.youtube.com/watch?v=OyqNQulDWvo',kind:'Verified video'},
 {subject:'All',topic:'NDA Mock Analysis',title:'NDA Replica Analysis Mathematics — Defence Wallah',url:'https://www.youtube.com/watch?v=eZu2E5iInvQ',kind:'Mock-test video'},
-{subject:'All',topic:'NDA Strategy',title:'NDA 75-Day Strategy — Defence Wallah',url:'https://www.youtube.com/watch?v=vI15cDje98Y',kind:'Strategy video'}
+{subject:'All',topic:'NDA Strategy',title:'NDA 75-Day Strategy — Defence Wallah',url:'https://www.youtube.com/watch?v=vI15cDje98Y',kind:'Strategy video'},
+{subject:'Mathematics',topic:'Complete Maths One Shot',title:'NDA 2 2026 Complete Maths Revision Marathon — Defence Wallah',url:'https://www.youtube.com/watch?v=jqcscBgdHZU',kind:'Recent revision video'},
+{subject:'Mathematics',topic:'Counting / Permutation',title:'NDA 2026 Counting + Permutation + Combination + PYQ — Defence Wallah',url:'https://www.youtube.com/watch?v=hQATHbm767A',kind:'Recent PYQ video'},
+{subject:'Mathematics',topic:'Sequence & Series',title:'NDA Sequence & Series Full Chapter — Defence Wallah',url:'https://www.youtube.com/watch?v=m6GVdjWr2yk',kind:'Full chapter video'},
+{subject:'All',topic:'NDA Preparation Strategy',title:'NDA 2026 Preparation Strategy + Mock Plan — Defence Wallah',url:'https://www.youtube.com/watch?v=7b62_itK_r8',kind:'Strategy + mock video'},
+{subject:'GAT',topic:'Polity',title:'NDA Polity — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+Polity+Defence+Wallah+CDS+Journey',kind:'Live video search'},
+{subject:'GAT',topic:'Chemistry',title:'NDA Chemistry — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+Chemistry+Defence+Wallah+CDS+Journey',kind:'Live video search'},
+{subject:'GAT',topic:'General Science',title:'NDA General Science — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+General+Science+Defence+Wallah+CDS+Journey',kind:'Live video search'},
+{subject:'English',topic:'English PYQ',title:'NDA English PYQ + Grammar — live video search',url:'https://www.youtube.com/results?search_query=NDA+English+PYQ+grammar+Defence+Wallah',kind:'Live video search'}
 ],
 resourceTopics:[
 ['Mathematics','Algebra'],['Mathematics','Matrices'],['Mathematics','Trigonometry'],['Mathematics','Coordinate Geometry'],['Mathematics','Calculus'],['Mathematics','Vectors'],['Mathematics','Probability'],['Mathematics','Statistics'],['Mathematics','Complex Numbers'],['Mathematics','Differential Equations'],
 ['GAT','Physics'],['GAT','Chemistry'],['GAT','General Science'],['GAT','History'],['GAT','Geography'],['GAT','Polity'],['GAT','Economics'],['GAT','Current Affairs'],
 ['English','Grammar'],['English','Vocabulary'],['English','Synonyms & Antonyms'],['English','Sentence Correction'],['English','Reading Comprehension']
 ].map(x=>({subject:x[0],topic:x[1],title:'NDA '+x[1]+' — explanation videos & PYQ practice',url:'https://www.youtube.com/results?search_query='+encodeURIComponent('NDA '+x[1]+' Defence Wallah CDS Journey 2026'),kind:'Topic search'})),
+pdfResources:[
+{subject:'PDF',topic:'UPSC NDA I 2026',title:'NDA I 2026 Mathematics — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-I-26-MATHEMATICS-130426.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA I 2026',title:'NDA I 2026 General Ability Test — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-I-26-GENERAL-ABILITY-TEST-130426.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA I 2025',title:'NDA I 2025 Mathematics — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-I-25-MATHEMATICS-150425.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA I 2025',title:'NDA I 2025 General Ability Test — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-I-25-GENERAL-ABILITY-TEST-150425.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA II 2024',title:'NDA II 2024 Mathematics — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-II-24-MATHEMATICS-020924.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA II 2024',title:'NDA II 2024 General Ability Test — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDA-NA-II-24-GENERAL-ABILITY-TEST-020924.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA I 2024',title:'NDA I 2024 Mathematics — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP_NDANAI2024_MATHEMATICS_22042024.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA I 2024',title:'NDA I 2024 General Ability Test — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP_NDANAI2024_GENERAL-ABILITY-TEST_22042024.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA II 2023',title:'NDA II 2023 Mathematics — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDANA-II-2023-Maths-04092023.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'UPSC NDA II 2023',title:'NDA II 2023 GAT — Official UPSC PDF',url:'https://www.upsc.gov.in/sites/default/files/QP-NDANA-II-2023-GAT-04092023.pdf',kind:'Official PDF'},
+{subject:'PDF',topic:'NDA Syllabus + Rules',title:'UPSC NDA Notification — syllabus, marking and rules PDF',url:'https://upsc.gov.in/sites/default/files/Notific-NDA-NA-I-2025-Engl-11122024.pdf',kind:'Official syllabus PDF'},
+{subject:'PDF',topic:'NCERT 6–12',title:'NCERT Textbooks — Classes I–XII official PDF hub',url:'https://ncert.nic.in/textbook.php',kind:'Official NCERT PDF hub'},
+{subject:'PDF',topic:'NDA Current Affairs',title:'NDA Monthly Current Affairs — July 2026 PDF',url:'https://www.cavalier.in/nda-current-affairs/monthly/2026-07-31',kind:'Free monthly PDF'}
+],
 ncertResources:[
 ...Array.from({length:5},(_,i)=>{const c=i+6;return {className:'Class '+c,subject:'Science',title:'NCERT Class '+c+' Science — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class='+c+'&subject=Science&type=pdf'}}),
 ...Array.from({length:5},(_,i)=>{const c=i+6;return {className:'Class '+c,subject:'Social Science',title:'NCERT Class '+c+' Social Science — official PDF/download page',url:'https://ncert.nic.in/textbook.php?class='+c+'&subject=Social+Science&type=pdf'}}),
@@ -45,7 +68,7 @@ ncertResources:[
 {className:'Class 12',subject:'Social Sciences',title:'NCERT Class 12 History / Geography / Political Science / Economics',url:'https://ncert.nic.in/textbook.php'}
 ],
 revisionTab:'formulas',selectedTopic:'Algebra',genSubject:'Mathematics',genDifficulty:'Hard',genCount:10,generated:[],
-tutorLevel:'beginner',tutorMode:'explain',tutorQuestion:'',tutorAnswer:'',tutorTopic:'',tutorModel:'free-expert',useGemini:false,tutorDepth:'',tutorFile:null,tutorFileName:'',tutorFileStatus:'',
+tutorLevel:'beginner',tutorMode:'explain',tutorQuestion:'',tutorAnswer:'',tutorTopic:'',tutorModel:'free-expert',useGemini:false,tutorDepth:'',tutorFile:null,tutorFileName:'',tutorFileStatus:'',copilotTopic:'Algebra',copilotGoal:'I want to master this topic for NDA',copilotMinutes:45,copilotAnswer:'',copilotQuestions:[],
 news:{daily_brief:[],current_affairs:[],nda_updates:[]},newsMeta:'Loading live feed…',newsCountdown:300,newsTimer:null,resourceFilter:'All',resourceSubject:'All',session:{signed_in:false,user:null},
 coachText:'',bookmarks:[],mocks:[],mockSearch:'',activeMock:null,mockQuestions:[],answers:[],currentIndex:0,timeLeft:0,paused:false,timer:null,
 result:{score:0,total:0,correct:0,wrong:0,attempted:0,accuracy:0},
