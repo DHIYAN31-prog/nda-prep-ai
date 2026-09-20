@@ -130,6 +130,43 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 </div>
 </section>
 
+<section x-show="view==='ncert'" class="space-y-5">
+<div class="glass card rounded-3xl p-6">
+<div class="flex flex-wrap justify-between gap-4 items-end">
+<div><div class="text-xs olive font-bold">NCERT BOOK LIBRARY</div><h2 class="text-3xl font-black mt-1">📚 NCERT Books — Classes 6–12</h2><p class="text-sm text-gray-500 mt-2 max-w-3xl">Separate book section for NDA foundation. Each card opens the official NCERT textbook page where the current complete book / chapter PDFs can be downloaded.</p></div>
+<a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener" class="bg-green-900 text-white rounded-xl px-4 py-3 text-sm">Official NCERT Hub →</a>
+</div>
+<div class="mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-3">
+<template x-for="r in ncertResources" :key="r.className+'-'+r.subject+'-'+r.title">
+<article class="border rounded-2xl p-4 hover:shadow-md">
+<div class="text-xs olive font-bold" x-text="r.className+' • '+r.subject"></div>
+<h3 class="font-semibold mt-1" x-text="r.title"></h3>
+<p class="text-xs text-gray-500 mt-2">Official NCERT download page • complete book option where provided</p>
+<a :href="r.url" target="_blank" rel="noopener" class="inline-block mt-3 text-sm underline">Open / Download PDF →</a>
+</article>
+</template>
+</div>
+<div class="mt-5 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-sm"><b>Why official links?</b> NCERT hosts the current textbook PDFs itself. The app links to the original source rather than re-hosting copyrighted textbook files.</div>
+</div>
+</section>
+
+<section x-show="view==='studynotes'" class="space-y-5">
+<div class="glass card rounded-3xl p-6">
+<div class="text-xs olive font-bold">FREE STUDY NOTES</div><h2 class="text-3xl font-black mt-1">📝 NDA Study Notes</h2>
+<p class="text-sm text-gray-500 mt-2">Original quick-revision notes made for NDA Prep AI. These are separate from the NCERT books and are designed for fast recall after reading the textbook.</p>
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
+<template x-for="n in studyNotes" :key="n.subject+'-'+n.title">
+<article class="border rounded-2xl p-5">
+<div class="text-xs olive font-bold" x-text="n.subject"></div>
+<h3 class="font-bold text-lg mt-1" x-text="n.title"></h3>
+<p class="text-sm whitespace-pre-line leading-6 mt-3" x-text="n.content"></p>
+<button @click="bookmark('study-note',n.title,n.content)" class="text-xs underline mt-4">Bookmark note</button>
+</article>
+</template>
+</div>
+</div>
+</section>
+
 <section x-show="view==='analytics'" class="glass card rounded-3xl p-6"><div class="text-xs olive font-bold">ANALYTICS</div><h2 class="text-3xl font-black">Preparation dashboard</h2><div class="grid md:grid-cols-4 gap-3 mt-6"><div class="border rounded-2xl p-4"><div class="text-xs text-gray-500">Questions</div><div class="text-3xl font-black" x-text="analytics.questions"></div></div><div class="border rounded-2xl p-4"><div class="text-xs text-gray-500">Correct</div><div class="text-3xl font-black" x-text="analytics.correct"></div></div><div class="border rounded-2xl p-4"><div class="text-xs text-gray-500">Accuracy</div><div class="text-3xl font-black" x-text="analytics.accuracy+'%'"></div></div><div class="border rounded-2xl p-4"><div class="text-xs text-gray-500">Study streak</div><div class="text-3xl font-black" x-text="analytics.streak+'d'"></div></div></div></section>
 
 <section x-show="view==='bookmarks'" class="glass card rounded-3xl p-6"><div class="text-xs olive font-bold">YOUR SAVED REVISION</div><h2 class="text-3xl font-black">Bookmarks</h2><div class="grid md:grid-cols-2 gap-3 mt-5"><template x-for="b in bookmarks"><article class="border rounded-2xl p-4"><div class="text-xs olive" x-text="b.item_type"></div><b x-text="b.title"></b><p class="text-sm text-gray-500 mt-2" x-text="b.payload"></p></article></template></div><p x-show="!bookmarks.length" class="text-gray-500 mt-5">Sign in and bookmark formulas or notes to see them here.</p></section>
