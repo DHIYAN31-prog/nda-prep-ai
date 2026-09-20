@@ -38,7 +38,8 @@ function parseRss(xml, maxAgeHours=72){
 }
 function topicFor(title){
   const t=title.toLowerCase();
-  if(/defen[cs]e|army|navy|air force|drdo|missile|military|exercise|border|security|weapon|fighter|ship|submarine|nuclear/.test(t))return "Defence & Security";
+  if(/horoscope|astrology|celebrity|gossip|entertainment|bollywood|movie|film|television|lifestyle/.test(t))return null;
+  if(/defen[cs]e|\\barmy\\b|\\bnavy\\b|air force|\\bdrdo\\b|\\bmissile\\b|\\bmilitary\\b|\\bexercise\\b|\\bborder\\b|\\bsecurity\\b|\\bweapon\\b|\\bfighter\\b|\\bship\\b|\\bsubmarine\\b|\\bnuclear\\b/.test(t))return "Defence & Security";
   if(/space|isro|satellite|science|technology|ai |semiconductor|quantum|research/.test(t))return "Science & Tech";
   if(/economy|rbi|inflation|gdp|trade|export|import|bank|tax|employment|industry|market/.test(t))return "Economy";
   if(/climate|environment|forest|wildlife|tiger|cheetah|pollution|weather|monsoon|energy/.test(t))return "Environment";
@@ -59,7 +60,7 @@ function examAngle(topic,title){
 }
 async function fetchRss(q){
   const url="https://news.google.com/rss/search?q="+encodeURIComponent(q)+"&hl=en-IN&gl=IN&ceid=IN:en";
-  try{return parseRss(await (await fetch(url)).text(),720);}catch(e){return []}
+  try{return parseRss(await (await fetch(url)).text(),96);}catch(e){return []}
 }
 export default async function(req,res){
   const now=new Date(), date=now.toISOString().slice(0,10);
@@ -84,6 +85,7 @@ export default async function(req,res){
     const key=n.title.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
     if(seen.has(key))continue; seen.add(key);
     const topic=topicFor(n.title);
+    if(!topic)continue;
     const priority=topic==="Defence & Security"?3:(topic==="Science & Tech"||topic==="International Relations"?2:1);
     ranked.push({...n,topic,exam_angle:examAngle(topic,n.title),priority});
   }
