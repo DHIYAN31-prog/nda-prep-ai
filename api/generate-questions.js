@@ -72,8 +72,18 @@ export default async function(req,res){
  const raw=String(req.body?.subject||"Mathematics"), topic=String(req.body?.topic||"Algebra"), difficulty=String(req.body?.difficulty||"Hard");
  const count=Math.min(20,Math.max(1,Number(req.body?.count||10)));
  let source=[];
- if(raw==="Daily Quiz"||topic==="Mixed"){source=allMixed().map(x=>x[2]);}
- else {const subject=norm(raw), bank=banks[subject]||banks.Mathematics; const key=Object.keys(bank).find(k=>k.toLowerCase()===topic.toLowerCase())||Object.keys(bank)[0]; source=bank[key]||banks.Mathematics.Algebra;}
+ const subject=norm(raw);
+ if(raw==="Daily Quiz"){
+  source=allMixed().map(x=>x[2]);
+ } else {
+  const bank=banks[subject]||banks.Mathematics;
+  if(topic==="Mixed"){
+   source=Object.values(bank).flat();
+  } else {
+   const key=Object.keys(bank).find(k=>k.toLowerCase()===topic.toLowerCase())||Object.keys(bank)[0];
+   source=bank[key]||Object.values(bank)[0]||banks.Mathematics.Algebra;
+  }
+ }
  const questions=[];
  for(let i=0;i<count;i++){const item=source[i%source.length];questions.push({question:item[0],options:item[1],answer:item[2],explanation:item[3],difficulty,topic:topic==="Mixed"||raw==="Daily Quiz"?"Mixed":topic,marks:norm(raw)==="Mathematics"?2.5:4,negative_marks:norm(raw)==="Mathematics"?2.5/3:4/3,source:"NDA Prep AI original practice bank",original:true});}
  res.json({questions,mode:"free_expanded_bank",provider_required:false,bank_size:source.length});
