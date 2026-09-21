@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10251a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NDA Prep AI">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icons/nda-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/nda-icon.svg">
 <title>NDA Prep AI — Free NDA Preparation</title>
 <script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:'class'}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -16,7 +18,7 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 <div class="min-w-max"><div class="text-xl font-black">NDA Prep AI</div><div class="text-[10px] text-white/60">Free preparation • built for every aspirant</div></div>
 <nav class="hidden xl:flex gap-1 text-sm flex-1 overflow-x-auto">
 <template x-for="n in nav"><button @click="go(n.key)" class="px-3 py-2 rounded-lg hover:bg-white/10 whitespace-nowrap" x-text="n.label"></button></template></nav>
-<div class="flex gap-2 items-center ml-auto"><button @click="dark=!dark;localStorage.ndadark=dark?'1':'0'" class="px-3 py-2 rounded-lg bg-white/10" x-text="dark?'☀️':'🌙'"></button><button @click="notifyPermission()" class="px-3 py-2 rounded-lg bg-white/10">🔔</button><template x-if="session.signed_in"><div class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 text-sm"><span class="h-2 w-2 rounded-full bg-emerald-300"></span><span x-text="session.user?.name || 'Signed in'"></span></div></template><a x-show="!session.signed_in" href="/login" class="text-sm px-3 py-2 rounded-lg bg-white text-green-950 font-semibold">Sign in</a><a x-show="session.signed_in" href="/login" class="text-sm px-3 py-2 rounded-lg bg-white text-green-950 font-semibold">Account</a></div></div>
+<div class="flex gap-2 items-center ml-auto"><button x-show="canInstall" @click="installApp()" class="hidden sm:inline-flex px-3 py-2 rounded-lg bg-emerald-500 text-white font-semibold">📲 Install</button><button @click="dark=!dark;localStorage.ndadark=dark?'1':'0'" class="px-3 py-2 rounded-lg bg-white/10" x-text="dark?'☀️':'🌙'"></button><button @click="notifyPermission()" class="px-3 py-2 rounded-lg bg-white/10">🔔</button><template x-if="session.signed_in"><div class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 text-sm"><span class="h-2 w-2 rounded-full bg-emerald-300"></span><span x-text="session.user?.name || 'Signed in'"></span></div></template><a x-show="!session.signed_in" href="/login" class="text-sm px-3 py-2 rounded-lg bg-white text-green-950 font-semibold">Sign in</a><a x-show="session.signed_in" href="/login" class="text-sm px-3 py-2 rounded-lg bg-white text-green-950 font-semibold">Account</a></div></div>
 <div class="xl:hidden px-4 pb-3 overflow-x-auto flex gap-1"><template x-for="n in nav"><button @click="go(n.key)" class="text-xs px-3 py-2 rounded-lg bg-white/10 whitespace-nowrap" x-text="n.label"></button></template></div>
 </header>
 
@@ -188,5 +190,7 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 
 <section x-show="view==='bookmarks'" class="glass card rounded-3xl p-6"><div class="text-xs olive font-bold">YOUR SAVED REVISION</div><h2 class="text-3xl font-black">Bookmarks</h2><div class="grid md:grid-cols-2 gap-3 mt-5"><template x-for="b in bookmarks"><article class="border rounded-2xl p-4"><div class="text-xs olive" x-text="b.item_type"></div><b x-text="b.title"></b><p class="text-sm text-gray-500 mt-2" x-text="b.payload"></p></article></template></div><p x-show="!bookmarks.length" class="text-gray-500 mt-5">Sign in and bookmark formulas or notes to see them here.</p></section>
 </main>
-<footer class="max-w-7xl mx-auto px-4 pb-8 text-xs text-gray-500">NDA Prep AI is an independent preparation tool. UPSC is the authoritative source for official exam notifications, schedules, papers and answer keys.</footer>
-<script src="/app.js"></script></body></html>
+<footer class="max-w-7xl mx-auto px-4 pb-8 text-xs text-gray-500">NDA Prep AI is an independent preparation tool. <a href="/privacy.html" class="underline">Privacy Policy</a> • UPSC is the authoritative source for official exam notifications, schedules, papers and answer keys.</footer>
+<script src="/app.js"></script><script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}
+</script></body></html>

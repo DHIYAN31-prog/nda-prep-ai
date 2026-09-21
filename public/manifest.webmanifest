@@ -1,0 +1,16 @@
+{
+  "name":"NDA Prep AI — Free NDA Preparation",
+  "short_name":"NDA Prep AI",
+  "description":"Free-first NDA preparation: quizzes, mocks, revision, tutor, current affairs and study planning.",
+  "start_url":"/?source=pwa",
+  "scope":"/",
+  "display":"standalone",
+  "orientation":"portrait-primary",
+  "background_color":"#f4f7f2",
+  "theme_color":"#10251a",
+  "lang":"en-IN",
+  "categories":["education","productivity"],
+  "icons":[
+    {"src":"/icons/nda-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
