@@ -164,18 +164,19 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 
 <section x-show="view==='studynotes'" class="space-y-5">
 <div class="glass card rounded-3xl p-6">
-<div class="text-xs olive font-bold">FREE STUDY NOTES</div><h2 class="text-3xl font-black mt-1">📝 NDA Study Notes</h2>
-<p class="text-sm text-gray-500 mt-2">Original quick-revision notes made for NDA Prep AI. These are separate from the NCERT books and are designed for fast recall after reading the textbook.</p>
-<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
-<template x-for="n in studyNotes" :key="n.subject+'-'+n.title">
-<article class="border rounded-2xl p-5">
-<div class="text-xs olive font-bold" x-text="n.subject"></div>
-<h3 class="font-bold text-lg mt-1" x-text="n.title"></h3>
-<p class="text-sm whitespace-pre-line leading-6 mt-3" x-text="n.content"></p>
-<button @click="bookmark('study-note',n.title,n.content)" class="text-xs underline mt-4">Bookmark note</button>
-</article>
-</template>
+<div class="flex flex-wrap justify-between gap-4 items-end"><div><div class="text-xs olive font-bold">FREE REVISION LIBRARY</div><h2 class="text-3xl font-black mt-1">📘 NDA Maths Notes + One-Mark Lab</h2><p class="text-sm text-gray-500 mt-2">Complete topic-wise Mathematics revision covering the NDA Mathematics syllabus, plus source-based 1-mark MCQs from the actual PDFs you uploaded.</p></div><button @click="window.print()" class="border rounded-xl px-4 py-3">Print / Save as PDF</button></div>
+<div class="mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-4"><template x-for="n in mathNotes" :key="n.topic"><article class="border rounded-2xl p-5"><div class="text-xs olive font-bold">MATHEMATICS</div><h3 class="font-bold text-lg mt-1" x-text="n.topic"></h3><p class="text-sm text-gray-600 dark:text-gray-300 mt-2" x-text="n.summary"></p><div class="mt-3 space-y-2"><template x-for="f in n.formulas"><div class="font-mono text-xs bg-gray-50 dark:bg-gray-900 rounded-lg p-2" x-text="f"></div></template></div><p class="text-xs mt-3"><b>Exam tip:</b> <span x-text="n.tips"></span></p><button @click="bookmark('math-note',n.topic,n.summary+'\n'+n.formulas.join('\n'))" class="text-xs underline mt-3">Bookmark topic</button></article></template></div>
 </div>
+<div class="glass card rounded-3xl p-6">
+<div class="text-xs olive font-bold">UPLOADED PDF → FREE MCQ ENGINE</div><h2 class="text-2xl font-black mt-1">Generate 1-mark MCQs from your actual PDFs</h2><p class="text-sm text-gray-500 mt-2">Choose any stored PDF. Its text is read in your browser and the question engine builds source-based questions without requiring OpenAI, Anthropic or Gemini credits.</p>
+<div class="grid md:grid-cols-[1fr_150px] gap-3 mt-4"><select x-model="sourceLabFile" class="border rounded-xl p-3"><option value="">Select an uploaded PDF…</option><template x-for="r in ncertResources" :key="r.id"><option :value="r.url" x-text="r.title"></option></template></select><select x-model="sourceLabCount" class="border rounded-xl p-3"><option>10</option><option>20</option><option>30</option></select></div>
+<div class="flex gap-2 flex-wrap mt-4"><button @click="generateSourceQuestions()" class="bg-green-900 text-white rounded-xl px-4 py-3">Generate Source MCQs</button><button @click="sourceLabQuestions=[];sourceLabStatus='Cleared'" class="border rounded-xl px-4 py-3">Clear</button></div>
+<p class="text-xs text-gray-500 mt-3" x-text="sourceLabStatus"></p>
+<div x-show="sourceLabQuestions.length" class="mt-5 space-y-3"><template x-for="(q,i) in sourceLabQuestions"><article class="border rounded-2xl p-4"><div class="text-xs olive" x-text="'1 Mark • '+(i+1)+' • '+q.topic"></div><h3 class="font-bold mt-1" x-text="q.question"></h3><div class="grid md:grid-cols-2 gap-2 mt-3"><template x-for="(o,j) in q.options"><div class="border rounded-xl p-3 text-sm"><b x-text="['A','B','C','D'][j]+'. '"></b><span x-text="o"></span></div></template></div><details class="mt-3"><summary class="cursor-pointer text-sm font-semibold">Show answer + source note</summary><p class="text-sm mt-2"><b x-text="'Answer: '+q.answer"></b><br><span x-text="q.explanation"></span></p></details></article></template></div>
+</div>
+<div class="glass card rounded-3xl p-6">
+<div class="text-xs olive font-bold">RAPID ONE-MARK REVISION</div><h2 class="text-2xl font-black mt-1">Uploaded-subject coverage</h2><p class="text-sm text-gray-500 mt-2">Fast one-mark revision across Physics, Chemistry, Biology, History, Geography, Polity, Economics, Sociology and English represented in your uploaded NCERT set.</p>
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-3 mt-5"><template x-for="(q,i) in oneMarkBank" :key="i"><article class="border rounded-2xl p-4"><div class="text-xs olive" x-text="q[0]+' • '+q[1]"></div><b class="block mt-1" x-text="q[2]"></b><div class="text-sm mt-2 space-y-1"><div>A) <span x-text="q[3]"></span></div><div>B) <span x-text="q[4]"></span></div><div>C) <span x-text="q[5]"></span></div><div>D) <span x-text="q[6]"></span></div></div><details class="mt-2"><summary class="text-xs underline cursor-pointer">Answer</summary><b class="text-sm" x-text="q[7]"></b></details></article></template></div>
 </div>
 </section>
 
