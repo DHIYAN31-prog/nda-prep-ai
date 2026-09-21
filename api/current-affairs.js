@@ -49,14 +49,16 @@ function topicFor(title){
   return "National & General";
 }
 function examAngle(topic,title){
-  if(topic==="Defence & Security")return "NDA focus: remember the organisation, platform/exercise, country and strategic purpose.";
-  if(topic==="Science & Tech")return "NDA focus: learn the technology, mission/objective and the organisation behind it.";
-  if(topic==="Economy")return "NDA focus: note the institution, key number/policy and its purpose.";
-  if(topic==="Environment")return "NDA focus: connect the event with ecology, geography, conservation or climate.";
-  if(topic==="International Relations")return "NDA focus: remember the countries/organisation, venue and purpose of the engagement.";
-  if(topic==="Polity")return "NDA focus: note the institution, constitutional/legal context and the key change.";
-  if(topic==="Sports")return "NDA focus: remember venue, edition, winner/achievement and host country.";
-  return "NDA focus: keep the date, organisation/place and one key fact for revision.";
+  const t=String(title||"").toLowerCase();
+  if(/semiconductor|chip design|chip|ism 2\.0|semicon/.test(t))return "🎯 NDA may ask: ISM 2.0, chip design ecosystem, EDA tools, semiconductor manufacturing and why chips matter for strategic technology.";
+  if(/drdo|missile|fighter|submarine|warship|army|navy|air force|military|exercise|defence|defense/.test(t))return "🎯 NDA may ask: the system/exercise, participating country or service, location and strategic purpose.";
+  if(/isro|satellite|space|quantum|ai |artificial intelligence|research|technology/.test(t))return "🎯 NDA may ask: the technology/mission, organisation, objective and one key application.";
+  if(/rbi|inflation|gdp|budget|trade|export|import|bank|tax|employment|industry/.test(t))return "🎯 NDA may ask: the institution, key term/number, policy objective and economic impact.";
+  if(/climate|environment|forest|wildlife|tiger|cheetah|pollution|monsoon|energy/.test(t))return "🎯 NDA may ask: the place/species/process, cause, conservation measure and related geography.";
+  if(/brics|un |diplom|summit|ambassador|foreign|russia|china|japan|usa|europe|bilateral/.test(t))return "🎯 NDA may ask: countries/organisation, venue, agreement or initiative and its purpose.";
+  if(/court|supreme|parliament|government|scheme|policy|law|constitution|election|judicial/.test(t))return "🎯 NDA may ask: the institution, constitutional/legal provision, scheme or key change.";
+  if(/asian games|cricket|football|hockey|olympic|world cup|medal|sport/.test(t))return "🎯 NDA may ask: event/edition, venue or host, country/team and achievement.";
+  return "🎯 NDA may ask: who/what, where, when and the one key fact behind this news.";
 }
 async function fetchRss(q){
   const url="https://news.google.com/rss/search?q="+encodeURIComponent(q)+"&hl=en-IN&gl=IN&ceid=IN:en";
