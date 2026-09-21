@@ -1,6 +1,6 @@
 import { ai } from "hatchable";
 
-export const access="member";
+export const access="public";
 export const methods=["POST"];
 
 const kb={

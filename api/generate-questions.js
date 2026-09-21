@@ -1,4 +1,4 @@
-export const access="member";
+export const access="public";
 export const methods=["POST"];
 const banks={
  Mathematics:{
