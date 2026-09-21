@@ -6,7 +6,8 @@ export const methods=["GET"];
 function infer(filename,storedClass,storedSubject){
  const f=String(filename||"").toLowerCase();
  const m=f.match(/(?:class[- ]?|11th|12th|10th|9th|8th|7th|6th)(\d{1,2})/i);
- const n=m?Number(m[1]):(f.match(/(11th|12th|10th|9th|8th|7th|6th)/)?.[1]||"");
+ const raw=m?.[1]||(f.match(/(11th|12th|10th|9th|8th|7th|6th)/)?.[1]||"");
+ const n=String(raw).replace(/\D/g,"");
  const cls=n?("Class "+n):storedClass;
  let subject=storedSubject||"General";
  if(/physics/.test(f))subject="Physics";
