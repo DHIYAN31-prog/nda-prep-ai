@@ -27,6 +27,9 @@ function pick(q){
  if(/history|revolt|freedom|empire|war/.test(s))return"history";
  if(/geography|climate|river|soil|atmosphere|map/.test(s))return"geography";
  if(/chemistry|mole|atom|bond|reaction|periodic/.test(s))return"chemistry";
+ if(/polity|constitution|parliament|president|fundamental rights|governance/.test(s))return"polity";
+ if(/economics|economy|gdp|inflation|budget|banking|fiscal|monetary/.test(s))return"economics";
+ if(/sociology|society|social|culture|community|institution/.test(s))return"sociology";
  return"algebra";
 }
 function solveLinear(q){

@@ -94,10 +94,10 @@ body{background:#f4f7f2;color:#132018}.dark body{background:#08100b;color:#eef5e
 <input x-model="copilotMinutes" type="number" min="10" max="120" class="border rounded-xl p-3" placeholder="Minutes">
 </div>
 <div class="flex flex-wrap gap-2 mt-4">
-<button @click="runCopilot()" class="bg-green-900 text-white rounded-xl px-5 py-3">🚀 Start Smart Session</button>
-<button @click="copilotGoal='Rapid revision before mock';copilotMinutes=20;runCopilot()" class="border rounded-xl px-4 py-3">⚡ Rapid Revision</button>
-<button @click="copilotGoal='Fix my weak area';copilotMinutes=45;runCopilot()" class="border rounded-xl px-4 py-3">🎯 Weak Topic Rescue</button>
-<button @click="copilotGoal='Learn from zero';copilotMinutes=60;runCopilot()" class="border rounded-xl px-4 py-3">🧠 Learn from Zero</button>
+<button @click="copilotMode='smart';copilotGoal='Master this topic for NDA';copilotMinutes=45;runCopilot()" class="bg-green-900 text-white rounded-xl px-5 py-3">🚀 Start Smart Session</button>
+<button @click="copilotMode='rapid';copilotGoal='Rapid revision before mock';copilotMinutes=20;runCopilot()" class="border rounded-xl px-4 py-3">⚡ Rapid Revision</button>
+<button @click="copilotMode='weak';copilotGoal='Fix my weak area';copilotMinutes=45;runCopilot()" class="border rounded-xl px-4 py-3">🎯 Weak Topic Rescue</button>
+<button @click="copilotMode='zero';copilotGoal='Learn from zero';copilotMinutes=60;runCopilot()" class="border rounded-xl px-4 py-3">🧠 Learn from Zero</button>
 </div>
 <div x-show="copilotAnswer" class="mt-6 grid lg:grid-cols-[1.4fr_.8fr] gap-5">
 <article class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 whitespace-pre-line leading-7"><div class="text-xs olive font-bold mb-3">AI TEACHING PLAN</div><div x-text="copilotAnswer"></div></article>

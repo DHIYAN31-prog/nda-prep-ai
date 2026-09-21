@@ -98,6 +98,21 @@ const banks={
    ["Most weather phenomena occur in the:",["A) Troposphere","B) Stratosphere","C) Mesosphere","D) Thermosphere"],"A","Most clouds and weather occur in the troposphere."],
    ["The longest river in India by course within India is commonly identified as:",["A) Godavari","B) Ganga","C) Narmada","D) Kaveri"],"B","The Ganga is the longest major river system within India."],
    ["The Tropic of Cancer passes through:",["A) India","B) Sri Lanka only","C) Nepal only","D) Maldives only"],"A","The Tropic of Cancer crosses India."]
+  ],
+  Polity:[
+   ["Fundamental Rights are contained in which Part of the Constitution?",["A) Part II","B) Part III","C) Part IV","D) Part V"],"B","Fundamental Rights are in Part III."],
+   ["The Parliament of India consists of:",["A) Lok Sabha only","B) Rajya Sabha only","C) President and two Houses","D) Supreme Court and two Houses"],"C","The Constitution defines Parliament as the President and the two Houses."],
+   ["The constitutional head of the Union executive is the:",["A) Prime Minister","B) President","C) Chief Justice","D) Speaker"],"B","The President is the constitutional head of the Union executive."]
+  ],
+  Economics:[
+   ["GDP measures the value of:",["A) Final goods and services produced within an economy","B) Only exports","C) Only government spending","D) Only agricultural output"],"A","GDP measures the market value of final goods and services produced within a territory over a period."],
+   ["Inflation refers to a sustained rise in the:",["A) General price level","B) Population only","C) Export volume only","D) Literacy rate"],"A","Inflation is a sustained increase in the general price level."],
+   ["Monetary policy in India is primarily conducted by the:",["A) RBI","B) UPSC","C) Election Commission","D) Parliament Secretariat"],"A","The Reserve Bank of India is the monetary authority responsible for monetary policy."]
+  ],
+  Sociology:[
+   ["Sociology primarily studies:",["A) Society and social relationships","B) Chemical reactions","C) Planetary motion","D) Cell structure"],"A","Sociology is the systematic study of society and social relationships."],
+   ["A family is commonly classified as a:",["A) Social institution","B) Chemical compound","C) Physical force","D) Planetary system"],"A","Family is a major social institution."],
+   ["Culture includes:",["A) Shared values, beliefs and practices","B) Only biological traits","C) Only weather patterns","D) Only economic prices"],"A","Culture includes learned and shared patterns such as values, beliefs and practices."]
   ]
  }
 };
