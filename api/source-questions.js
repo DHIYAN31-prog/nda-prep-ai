@@ -1,6 +1,7 @@
 export const access="member";
 export const methods=["POST"];
-function sentences(text){return (text.replace(/\s+/g," ").match(/[^.!?]+[.!?]+/g)||[]).map(s=>s.trim()).filter(s=>s.length>=45&&s.length<=320).filter(s=>!/^(contents|chapter|exercise|answer key|figure|table)\b/i.test(s));}
+function cleanSource(text){return String(text||"").replace(/\\\\n/g,"\\n").replace(/\\r/g,"\\n").replace(/[ \\t]+/g," ").replace(/ *\\n */g,"\\n").trim()}
+function sentences(text){const clean=cleanSource(text);return (clean.match(/[^.!?]+[.!?]+/g)||clean.split(/\\n+/)).map(s=>s.trim()).filter(s=>s.length>=45&&s.length<=320).filter(s=>!/^(contents|chapter|exercise|answer key|figure|table)\\b/i.test(s)).filter(s=>/[A-Za-z]{3}/.test(s));}
 function key(i,j){return (i*11+j*7)%4;}
 export default async function(req,res){
  const text=String(req.body?.source_text||"").trim().slice(0,90000);
