@@ -126,7 +126,7 @@ export default async function(req,res){
  if(raw==="Daily Quiz"){
   source=allMixed().map(x=>x[2]);
  } else {
-  const bank=raw==="English" ? {English:banks.GAT.English} : (banks[subject]||banks.Mathematics);
+  const bank=/^(English|Physics|Chemistry|History|Geography|Polity|Economics|Sociology)$/.test(raw) ? {[raw]:banks.GAT[raw]} : (banks[subject]||banks.Mathematics);
   if(topic==="Mixed"){
    source=Object.values(bank).flat();
   } else {
