@@ -116,7 +116,7 @@ const banks={
   ]
  }
 };
-function norm(s){return s==="English"||s==="Physics"||s==="Chemistry"||s==="History"||s==="Geography"?"GAT":s==="GAT"?"GAT":"Mathematics";}
+function norm(s){return /^(English|Physics|Chemistry|History|Geography|Polity|Economics|Sociology)$/.test(s)?"GAT":s==="GAT"?"GAT":"Mathematics";}
 function allMixed(){return Object.entries(banks).flatMap(([subject,topics])=>Object.entries(topics).flatMap(([topic,qs])=>qs.map(q=>[subject,topic,q])));}
 export default async function(req,res){
  const raw=String(req.body?.subject||"Mathematics"), topic=String(req.body?.topic||"Algebra"), difficulty=String(req.body?.difficulty||"Hard");
