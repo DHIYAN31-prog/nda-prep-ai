@@ -1,4 +1,4 @@
-const CACHE='nda-prep-ai-v2';
+const CACHE='nda-prep-ai-v3';
 const SHELL=['/','/index.html','/app.js','/manifest.webmanifest','/icons/nda-icon.svg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
