@@ -32,7 +32,12 @@ resourceVideos:[
 {subject:'GAT',topic:'Polity',title:'NDA Polity — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+Polity+Defence+Wallah+CDS+Journey',kind:'Live video search'},
 {subject:'GAT',topic:'Chemistry',title:'NDA Chemistry — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+Chemistry+Defence+Wallah+CDS+Journey',kind:'Live video search'},
 {subject:'GAT',topic:'General Science',title:'NDA General Science — live topic video search',url:'https://www.youtube.com/results?search_query=NDA+General+Science+Defence+Wallah+CDS+Journey',kind:'Live video search'},
-{subject:'English',topic:'English PYQ',title:'NDA English PYQ + Grammar — live video search',url:'https://www.youtube.com/results?search_query=NDA+English+PYQ+grammar+Defence+Wallah',kind:'Live video search'}
+{subject:'English',topic:'English PYQ',title:'NDA English PYQ + Grammar — live video search',url:'https://www.youtube.com/results?search_query=NDA+English+PYQ+grammar+Defence+Wallah',kind:'Live video search'},
+{subject:'All',topic:'NDA 2 2026 Strategy',title:'NDA 2 2026 Complete Preparation Roadmap — Defence Wallah',url:'https://www.youtube.com/watch?v=tuyk2-1ZmXU',kind:'Recent strategy video'},
+{subject:'GAT',topic:'Complete GAT Revision',title:'NDA GAT Complete Revision One Shot — Maths Jugad Se',url:'https://www.youtube.com/watch?v=ERMYHQFaGtI',kind:'Recent revision video'},
+{subject:'GAT',topic:'Physics — Optics',title:'NDA Physics Optics Practice Set 14 — Rojgar with Ankit Defence',url:'https://www.youtube.com/watch?v=osN0-kMBoP8',kind:'Recent practice video'},
+{subject:'Mathematics',topic:'Binomial Theorem',title:'NDA 2 2026 Binomial Theorem Revision Series 11 — Rojgar with Ankit Defence',url:'https://www.youtube.com/watch?v=ZNkTzhmxzkQ',kind:'Recent chapter revision'},
+{subject:'Mathematics',topic:'Sequence & Series',title:'NDA 2 2026 Sequence & Series Revision Series 10 — Rojgar with Ankit Defence',url:'https://www.youtube.com/watch?v=r6Watq-BExc',kind:'Recent chapter revision'}
 ],
 resourceTopics:[
 ['Mathematics','Algebra'],['Mathematics','Matrices'],['Mathematics','Trigonometry'],['Mathematics','Coordinate Geometry'],['Mathematics','Calculus'],['Mathematics','Vectors'],['Mathematics','Probability'],['Mathematics','Statistics'],['Mathematics','Complex Numbers'],['Mathematics','Differential Equations'],
